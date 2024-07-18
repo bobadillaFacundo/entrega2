@@ -1,0 +1,10 @@
+h1 {
+    color:rgb(255, 255, 255);
+    text-decoration:underline;
+    text-align: center;
+}
+
+:root {
+  background-color: #1a1a1a; /* Color de fondo oscuro */
+  --text-color: #ffffff; /* Color del texto en el tema oscuro */
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            height: 100dvh; /* Altura completa de la ventana */
+        }
+
+        .container2 {
+            display: flex;
+            flex-direction: column; /* Disposición vertical */
+            height: 100%; /* Altura completa del contenedor */
+        }
+
+        .izquierda,
+        .derecha {
+            flex: 1; /* Ocupa la mitad */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Apilar verticalmente */
+        }
+
+        .izquierda2,
+        .derecha2 {
+            flex: 1; /* Ocupa la mitad */
+            display: flex;
+            flex-direction: column; /* Disposición vertical */
+            justify-content: center;
+            align-items: center;
+            width: 100%; /* Ancho completo */
+        }
+
+        h1 {
+            margin: 0 0 20px; /* Espacio debajo de los h1 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="izquierda">
+            <div class="container2">
+                <div class="izquierda2">
+                    <h1>Cargar producto</h1>
+                    <form action="" id="formID">
+                        <input type="text" id="title" placeholder="title"> <br><br>
+                        <input type="text" id="description" placeholder="description"><br><br>
+                        <input type="text" id="code" placeholder="code"><br><br>
+                        <input type="text" id="price" placeholder="price"><br><br>
+                        <input type="text" id="stock" placeholder="stock"><br><br>
+                        <input type="text" id="category" placeholder="category"><br><br>
+                        <button type="submit" id='submitAdd'>Registrar</button>
+                    </form>
+                </div>
+                <div class="derecha2">
+                    <h1>Eliminar producto</h1>
+                    <form action="" id="formDelete">
+                        <input type="text" id="id" placeholder="id"><br><br>
+                        <button type="submit" id='submitDelete'>Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="derecha">
+            <h1>Lista de productos</h1>
+            <div class="chat-input">
+            <textarea id='texto' cols="100" rows="15" style="resize: both;"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/realtimeproducts.js"></script>
