@@ -1,6 +1,8 @@
 import express from "express"
 import __dirname from '../utils.js'
 import path from "path"
+
+
 const router = express.Router()
 // Configuración para servir archivos estáticos desde el directorio 'public'
 router.use(express.static(path.join(__dirname, 'public')))
