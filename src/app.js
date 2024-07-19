@@ -2,6 +2,7 @@ import express from 'express'
 import engine from "express-handlebars"
 import { Server } from "socket.io"
 import __dirname from './utils.js'
+import path from "path"
 import viewsrouter from "./routers/views.router.js"
 import { getFromFile,saveToFile } from './utils.js' 
 
@@ -14,7 +15,13 @@ app.set("view engine", "handlebars")
 app.set("views", __dirname + "/views")
 app.use(express.static(__dirname + "/public"))
 app.use("/api", viewsrouter)
-app.use('/css', express.static('public/css'));
+app.use('/css', express.static(path.join(__dirname, 'public', 'css'), {
+    // Configuración adicional para definir el tipo MIME de manera explícita
+    setHeaders: (res, filePath) => {
+        const contentType = mime.getType(filePath) || 'text/plain';
+        res.setHeader('Content-Type', contentType);
+    }
+}))
 
 socketserver.on('connection', socket => {
 
