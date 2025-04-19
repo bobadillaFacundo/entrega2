@@ -1,9 +1,9 @@
 import express from 'express'
 import engine from "express-handlebars"
-import { Server } from "socket.io"
 import __dirname from './utils.js'
-import viewsrouter from "./routers/views.router.js"
 import path from "path"
+import { Server } from "socket.io"
+import viewsrouter from "./routers/views.router.js"
 import { getFromFile,saveToFile } from './utils.js' 
 
 
@@ -50,3 +50,5 @@ socketserver.on('connection', socket => {
 
     })
 })
+
+
